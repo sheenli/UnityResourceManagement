@@ -1,0 +1,21 @@
+{
+    "groups": [
+        {
+            "groupName": "NewGroupName",
+            "keys": [
+                "Main Camera_prefab"
+            ]
+        }
+    ],
+    "resources": [
+        {
+            "url": "e:New Folder 2/Main Camera.prefab",
+            "ABName": "New Folder 2",
+            "path": "Assets/ExternalRes/New Folder 2/Main Camera.prefab",
+            "address": "Main Camera_prefab",
+            "type": ".prefab",
+            "isKeepInMemory": true,
+            "isResourcesPath": false
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 2050117952
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: fa746860a9ed952c81bf40f6b852390e
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9bc5143788060d6663809da8a6c37930
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 20
+  Script: {instanceID: 0}
+- Class: 81
+  Script: {instanceID: 0}
+Assets:
+- Assets/ExternalRes/New Folder 2/New Folder/Main Camera 1.prefab
+Dependencies: []
