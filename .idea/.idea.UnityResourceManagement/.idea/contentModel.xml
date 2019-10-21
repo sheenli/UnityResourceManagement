@@ -7,6 +7,9 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Example" t="Include">
+          <e p="Example.cs" t="Include" />
+        </e>
         <e p="YKFramwork" t="Include">
           <e p="ResMgr" t="Include">
             <e p="Scripts" t="Include">
@@ -37,7 +40,19 @@
                   <e p="ResGroupTreeEditor.cs" t="Include" />
                 </e>
               </e>
+              <e p="LoadRes" t="Include">
+                <e p="DefAssetBundleLoad.cs" t="Include" />
+                <e p="DefResLoadCfg.cs" t="Include" />
+                <e p="DefResourceLoad.cs" t="Include" />
+                <e p="IAssetBundleLoad.cs" t="Include" />
+                <e p="IAssetLoad.cs" t="Include" />
+                <e p="IResLoadCfg.cs" t="Include" />
+                <e p="LoadGroup.cs" t="Include" />
+                <e p="ResMgr.cs" t="Include" />
+              </e>
               <e p="Utils" t="Include">
+                <e p="ByteBuffer.cs" t="Include" />
+                <e p="Converter.cs" t="Include" />
                 <e p="ReflectionUtils.cs" t="Include" />
               </e>
             </e>

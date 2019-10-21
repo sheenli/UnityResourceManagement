@@ -15,7 +15,7 @@ namespace YKFramwork.ResMgr.Editor
         /// <summary>
         /// 当前所选资源组名称
         /// </summary>
-        public AssetMode.GroupInfo group = null;
+        public string groupName = null;
 
         public List<AssetMode.AssetInfo> assets = new List<AssetMode.AssetInfo>();
 
@@ -218,7 +218,7 @@ namespace YKFramwork.ResMgr.Editor
             {
                 if (args.performDrop)
                 {
-                    List<string> name = AssetMode.AddAssetToGroup(DragAndDrop.paths, group.Name);
+                    List<string> name = AssetMode.AddAssetToGroup(DragAndDrop.paths, groupName);
                     foreach (string path in DragAndDrop.paths)
                     {
                         Debug.Log("SetupDragAndDrop 2" + path);
@@ -241,7 +241,7 @@ namespace YKFramwork.ResMgr.Editor
         /// <returns></returns>
         protected bool IsValidDragDrop(DragAndDropArgs args)
         {
-            if (group == null)
+            if (string.IsNullOrEmpty(groupName))
             {
                 return false;
             }
@@ -398,13 +398,13 @@ namespace YKFramwork.ResMgr.Editor
                 reAssets.Add(item.asset.data.address);
             }
 
-            AssetMode.RemoveAssets(reAssets, group.Name);
-            RelodGroup(@group.Name);
+            AssetMode.RemoveAssets(reAssets, groupName);
+            RelodGroup(groupName);
         }
 
         protected override void KeyEvent()
         {
-            if (group != null && Event.current.keyCode == KeyCode.Delete && GetSelection().Count > 0)
+            if (!string.IsNullOrEmpty(groupName) && Event.current.keyCode == KeyCode.Delete && GetSelection().Count > 0)
             {
                 List<AssetTreeViewItem> selectedNodes = new List<AssetTreeViewItem>();
                 foreach (var nodeID in GetSelection())
@@ -427,8 +427,8 @@ namespace YKFramwork.ResMgr.Editor
         public void RelodGroup(string groupName)
         {
             assets.Clear();
-            this.group = AssetMode.GetGroupInfo(groupName);
-            AddAsset(AssetMode.resInfo.GetAssetsNames(this.group.Name));
+            this.groupName = groupName;
+            AddAsset(AssetMode.resInfo.GetAssetsNames(groupName));
             ReloadAndSelect(new List<int>());
             UpdateSelectedAssets(new List<AssetMode.AssetInfo>());
             currentSelect = -1;
@@ -446,15 +446,15 @@ namespace YKFramwork.ResMgr.Editor
         private void AddAssetToGroup(IList<string> names)
         {
             assets.Clear();
-            if (string.IsNullOrEmpty(group.Name))
+            if (!string.IsNullOrEmpty(groupName))
             {
-                this.group = null;
+                
+                string[] datas = AssetMode.resInfo.GetAssetsNames(groupName);
+                AddAsset(datas);
             }
             else
             {
-                
-                string[] datas = AssetMode.resInfo.GetAssetsNames(this.group.Name);
-                AddAsset(datas);
+                return;
             }
             List<int> assetNames = new List<int>();
             List<AssetMode.AssetInfo> infos = new List<AssetMode.AssetInfo>();

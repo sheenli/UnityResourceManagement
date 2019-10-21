@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
 using UnityEditor;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using YKFramork.ResMgr;
+using YKFramwork.ResMgr.Utils;
 
 namespace YKFramwork.ResMgr.Editor
 {
@@ -47,14 +46,15 @@ namespace YKFramwork.ResMgr.Editor
             EditorGUILayout.BeginHorizontal();
             var w = rect.width - 30;
             GUILayout.Space(10);
-            if (GUILayout.Button( Language.BuildSelctABs,GUILayout.Height(60),GUILayout.Width(w/2)))
+            var height = rect.height * 0.4;
+            if (GUILayout.Button( Language.BuildSelctABs,GUILayout.Height((int)height),GUILayout.Width(w/2)))
             {
                 BuildSelect(outPath,AssetMode.CurrentSelectsAbs,mBuildTarget,mBuildAssetBundleOptions);
             }
             GUILayout.Space(10);
-            if (GUILayout.Button( Language.BuildAllABS,GUILayout.Height(60),GUILayout.Width(w/2)))
+            if (GUILayout.Button( Language.BuildAllABS,GUILayout.Height((int)height),GUILayout.Width(w/2)))
             {
-                BuildAll(outPath,mBuildTarget,mBuildAssetBundleOptions);
+                BuildAll(ver,outPath,mBuildTarget,mBuildAssetBundleOptions);
             }
             EditorGUILayout.EndHorizontal();
             GUILayout.EndArea();
@@ -73,15 +73,19 @@ namespace YKFramwork.ResMgr.Editor
         }
 
 
-        public static void BuildAll(string outPath,BuildTarget target,BuildAssetBundleOptions options)
+        public static void BuildAll(string ver,string outPath,BuildTarget target,BuildAssetBundleOptions options)
         {
             AssetMode.Rebuild();
-            BuildSelect(outPath, AssetMode.GetAllBundleNames(), target, options);
+            var buils = BuildSelect(outPath, AssetMode.GetAllBundleNames(), target, options);
+            string newFileName = outPath+"/" + Path.GetFileName(ResConfig.ResJsonCfgFilePath);
+            File.Copy(ResConfig.ResJsonCfgFilePath,newFileName,true);
+            BuildABVersionInfo(outPath, ver, buils);
+            AssetDatabase.Refresh();
         }
 
-        public static void BuildSelect(string outPath,List<string> abs,BuildTarget target,BuildAssetBundleOptions options)
+        public static List<AssetBundleBuild> BuildSelect(string outPath,List<string> abs,BuildTarget target,BuildAssetBundleOptions options)
         {
-            List<AssetBundleBuild> needAdds = new List<AssetBundleBuild>();
+            var needAdds = new List<AssetBundleBuild>();
             foreach (var ab in abs)
             {
                 List<ResInfoData> list = AssetMode.getABAssets(ab);
@@ -99,7 +103,8 @@ namespace YKFramwork.ResMgr.Editor
                     }
 
                     bs.assetNames = assets.ToArray();
-                    needAdds.Add(bs);
+                    if(bs.assetNames.Length > 0)
+                        needAdds.Add(bs);
                 }
             }
 
@@ -108,9 +113,7 @@ namespace YKFramwork.ResMgr.Editor
                 Directory.CreateDirectory(outPath);
             }
             BuildPipeline.BuildAssetBundles(outPath, needAdds.ToArray(), options, target);
-            string newFileName = outPath+"/" + Path.GetFileName(ResConfig.ResJsonCfgFilePath);
-            File.Copy(ResConfig.ResJsonCfgFilePath,newFileName,true);
-            
+            return needAdds;
         }
         
         static string GetHash(string path)
@@ -122,6 +125,30 @@ namespace YKFramwork.ResMgr.Editor
             byte[] hashByte = hash.ComputeHash(stream);
             stream.Close();
             return BitConverter.ToString(hashByte).Replace("-", "");
+        }
+
+        static void BuildABVersionInfo(string path,string ver,List<AssetBundleBuild> builds)
+        {
+            try
+            {
+                ByteBuffer buffer = new ByteBuffer();
+                buffer.WriteString(ver);
+                buffer.WriteInt(builds.Count);
+                foreach (var b in builds)
+                {
+                    FileInfo fi = new FileInfo(path+"/"+b.assetBundleName+"."+b.assetBundleVariant);
+                    buffer.WriteString(b.assetBundleName);
+                    buffer.WriteString(GetHash(fi.FullName));
+                    buffer.WriteLong(fi.Length);
+                }
+               
+                File.WriteAllBytes(path+"/version",buffer.ToBytes());
+                buffer.Close();
+            }
+            catch (Exception ex)
+            {
+                
+            }
         }
     }
 }

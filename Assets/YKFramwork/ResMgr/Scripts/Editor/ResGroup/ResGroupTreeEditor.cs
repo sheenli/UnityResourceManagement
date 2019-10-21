@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEditor.IMGUI.Controls;
 using UnityEngine;
@@ -107,9 +108,11 @@ namespace YKFramwork.ResMgr.Editor
             mRoot.id = -1;
             mRoot.depth = -1;
             mRoot.children = new List<TreeViewItem>();
-            foreach (AssetMode.GroupInfo name in AssetMode.gropsEditorInfo)
+            int id = 0;
+            foreach ( ResGroupCfg group in AssetMode.resInfo.groups)
             {
-                var t = new TreeViewItem(name.NameHashCode, name.NameHashCode, name.Name);
+                id++;
+                var t = new TreeViewItem(id, id, group.groupName);
                 mRoot.AddChild(t);
             }
 
@@ -130,35 +133,21 @@ namespace YKFramwork.ResMgr.Editor
         /// <param name="args"></param>
         protected override void RenameEnded(RenameEndedArgs args)
         {
-            base.RenameEnded(args);
+            //base.RenameEnded(args);
 
             if (!string.IsNullOrEmpty(args.newName) && args.newName != args.originalName)
             {
-                //args.newName = args.newName.ToLower();
-                args.acceptedRename = true;
 
                 args.acceptedRename = AssetMode.HandleGroupRename(args.originalName, args.newName);
                 if (args.acceptedRename)
                 {
-                    ReloadAndSelect(args.itemID, false);
+                    Reload();
+                    //ReloadAndSelect(args.itemID, false);
                 }
             }
             else
             {
                 args.acceptedRename = false;
-            }
-        }
-
-
-
-        private void ReloadAndSelect(int hashCode, bool rename)
-        {
-            var selection = new List<int>();
-            selection.Add(hashCode);
-            ReloadAndSelect(selection);
-            if (rename)
-            {
-                BeginRename(FindItem(hashCode, rootItem), 0.1f);
             }
         }
 
@@ -232,10 +221,10 @@ namespace YKFramwork.ResMgr.Editor
             }
 
             mContextOnItem = true;
-            List<AssetMode.GroupInfo> selectedNodes = new List<AssetMode.GroupInfo>();
+            List<int> selectedNodes = new List<int>();
             foreach (var nodeID in GetSelection())
             {
-                selectedNodes.Add(AssetMode.GetGroupInfo(nodeID));
+                selectedNodes.Add(nodeID);
             }
 
             GenericMenu menu = new GenericMenu();
@@ -250,29 +239,46 @@ namespace YKFramwork.ResMgr.Editor
 
             menu.ShowAsContext();
         }
+        
+        protected override void KeyEvent()
+        {
+            if (Event.current.keyCode == KeyCode.Delete && GetSelection().Count > 0)
+            {
+                var list = GetSelection();
+                DeleteGroups(list.ToList());
+            }
+        }
 
 
 
         void CreateResGroup(object context)
         {
             string name = AssetMode.HandleGroupCreate();
-            ReloadAndSelect(AssetMode.GetGroupInfo(name).NameHashCode, true);
+            
+            ReloadAndSelect(new List<int>());
+            var item = rootItem.children.Find(a => a.displayName == name);
+            BeginRename(item);
         }
 
         void DeleteGroups(object b)
         {
-            var selectedNodes = b as List<AssetMode.GroupInfo>;
+            var selectedNodes = b as List<int>;
+            var names = new List<string>();
+            foreach (var id  in selectedNodes)
+            {
+                names.Add(FindItem(id,rootItem).displayName);
+            }
 
-            AssetMode.HandleGroupsDelete(selectedNodes);
+            AssetMode.HandleGroupsDelete(names);
             ReloadAndSelect(new List<int>());
         }
 
         void RenameGroupName(object context)
         {
-            var selectedNodes = context as List<AssetMode.GroupInfo>;
+            var selectedNodes = context as List<int>;
             if (selectedNodes != null && selectedNodes.Count > 0)
             {
-                TreeViewItem item = FindItem(selectedNodes[0].NameHashCode, rootItem);
+                TreeViewItem item = FindItem(selectedNodes[0], rootItem);
                 BeginRename(item, 0.25f);
             }
         }

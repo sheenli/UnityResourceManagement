@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEditor.IMGUI.Controls;
 using UnityEngine;
-using YKFramwork.ResMgr.Editor;
 
-namespace YKFramork.ResMgr.Editor
+namespace YKFramwork.ResMgr.Editor
 {
     public class AssetBundleNameTree:TreeView
     {

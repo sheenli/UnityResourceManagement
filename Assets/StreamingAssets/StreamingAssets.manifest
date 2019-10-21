@@ -1,16 +1,7 @@
 ManifestFileVersion: 0
-CRC: 2846513334
+CRC: 924697392
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: new folder 2_new folder.bytes
-      Dependencies: {}
-    Info_1:
-      Name: new folder 1.bytes
-      Dependencies: {}
-    Info_2:
-      Name: new folder.bytes
-      Dependencies: {}
-    Info_3:
       Name: new folder 2.bytes
       Dependencies: {}

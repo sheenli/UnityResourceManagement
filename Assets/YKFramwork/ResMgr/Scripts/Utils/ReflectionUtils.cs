@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace DefaultNamespace
+namespace YKFramwork.ResMgr.Utils
 {
     public class ReflectionUtils
     {

@@ -3,7 +3,8 @@
         {
             "groupName": "NewGroupName",
             "keys": [
-                "Main Camera_prefab"
+                "Main Camera_prefab",
+                "Cube_prefab"
             ]
         }
     ],
@@ -16,6 +17,15 @@
             "type": ".prefab",
             "isKeepInMemory": true,
             "isResourcesPath": false
+        },
+        {
+            "url": "r:ources/Cube.prefab",
+            "ABName": "ources",
+            "path": "Assets/Resources/Cube.prefab",
+            "address": "Cube_prefab",
+            "type": ".prefab",
+            "isKeepInMemory": true,
+            "isResourcesPath": true
         }
     ]
 }

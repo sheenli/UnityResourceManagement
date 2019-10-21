@@ -1,17 +1,58 @@
 {
     "groups": [
         {
-            "groupName": "NewGroupName",
+            "groupName": "test",
+            "keys": [
+                "Cube_prefab",
+                "Cube 1_prefab",
+                "AchievementUnlocked_mp3"
+            ]
+        },
+        {
+            "groupName": "test2",
             "keys": [
                 "Main Camera_prefab"
+            ]
+        },
+        {
+            "groupName": "NewGroupName",
+            "keys": [
+                "Cube 1_prefab"
             ]
         }
     ],
     "resources": [
         {
-            "url": "e:New Folder 2/Main Camera.prefab",
-            "ABName": "New Folder 2",
-            "path": "Assets/ExternalRes/New Folder 2/Main Camera.prefab",
+            "url": "r://Cube.prefab",
+            "ABName": "",
+            "path": "Assets/Resources/Cube.prefab",
+            "address": "Cube_prefab",
+            "type": ".prefab",
+            "isKeepInMemory": true,
+            "isResourcesPath": true
+        },
+        {
+            "url": "r://New Folder/Cube 1.prefab",
+            "ABName": "New Folder",
+            "path": "Assets/Resources/New Folder/Cube 1.prefab",
+            "address": "Cube 1_prefab",
+            "type": ".prefab",
+            "isKeepInMemory": true,
+            "isResourcesPath": true
+        },
+        {
+            "url": "e://New Folder/AchievementUnlocked.mp3",
+            "ABName": "New Folder",
+            "path": "Assets/ExternalRes/New Folder/AchievementUnlocked.mp3",
+            "address": "AchievementUnlocked_mp3",
+            "type": ".mp3",
+            "isKeepInMemory": true,
+            "isResourcesPath": false
+        },
+        {
+            "url": "e://New Folder 1/Main Camera.prefab",
+            "ABName": "New Folder 1",
+            "path": "Assets/ExternalRes/New Folder 1/Main Camera.prefab",
             "address": "Main Camera_prefab",
             "type": ".prefab",
             "isKeepInMemory": true,

@@ -5,7 +5,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace YKFramork.ResMgr
+namespace YKFramwork.ResMgr
 {
     /// <summary>
     /// 加载场景的配置信息
@@ -162,16 +162,16 @@ namespace YKFramork.ResMgr
         /// <summary>
         /// 获取一个资源信息根据资源名称
         /// </summary>
-        /// <param name="assetName">资源名称</param>
+        /// <param name="addr">资源名称</param>
         /// <returns></returns>
-        public ResInfoData GetResInfo(string assetName)
+        public ResInfoData GetResInfo(string addr)
         {
-            foreach (var v in resources)
-            {
-                if (v.address == assetName) return v;
-            }
+            return resources.Find(a => a.address == addr);
+        }
 
-            return null;
+        public ResInfoData GetResInfoByUrl(string url)
+        {
+            return resources.Find(a => a.url == url);
         }
     }
 }

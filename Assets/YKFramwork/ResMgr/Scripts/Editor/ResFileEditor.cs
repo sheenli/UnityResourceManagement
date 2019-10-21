@@ -6,7 +6,6 @@ using System.Linq;
 using System;
 using UnityEditor.IMGUI.Controls;
 using UnityEngine.Serialization;
-using YKFramork.ResMgr.Editor;
 
 namespace YKFramwork.ResMgr.Editor
 {

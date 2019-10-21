@@ -1,5 +1,5 @@
 ﻿using System;
-using Boo.Lang;
+using System.Collections.Generic;
 
 namespace YKFramwork.ResMgr.Editor
 {

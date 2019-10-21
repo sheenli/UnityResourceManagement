@@ -1,29 +1,14 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
-using UnityEditor.Build.Content;
-using UnityEditor.IMGUI.Controls;
 using UnityEngine;
-using YKFramork.ResMgr;
 
 namespace YKFramwork.ResMgr.Editor
 {
     public class AssetMode
     {
         public static List<string> CurrentSelectsAbs = new List<string>();
-        public class GroupInfo
-        {
-            public int NameHashCode = 0;
-            public string Name;
-
-            public GroupInfo(int id, string name)
-            {
-                NameHashCode = id;
-                this.Name = name;
-            }
-        }
 
         /// <summary>
         /// 资源信息
@@ -54,44 +39,6 @@ namespace YKFramwork.ResMgr.Editor
                 return EditorUtility.FormatBytes(size);
             }
         }
-
-
-        /// <summary>
-        /// 当前组
-        /// </summary>
-        public static List<AssetMode.GroupInfo> gropsEditorInfo = new List<AssetMode.GroupInfo>();
-
-        public static AssetMode.GroupInfo GetGroupInfo(string groupName)
-        {
-            AssetMode.GroupInfo info = null;
-            foreach (AssetMode.GroupInfo group in gropsEditorInfo)
-            {
-                if (group.Name == groupName)
-                {
-                    info = group;
-                    break;
-                }
-            }
-
-            return info;
-        }
-
-        public static AssetMode.GroupInfo GetGroupInfo(int id)
-        {
-            AssetMode.GroupInfo info = null;
-            foreach (AssetMode.GroupInfo group in gropsEditorInfo)
-            {
-                if (group.NameHashCode == id)
-                {
-                    info = group;
-                    break;
-                }
-            }
-
-            return info;
-        }
-        
-        
 
         /// <summary>
         /// 本地配置表的文件
@@ -129,8 +76,6 @@ namespace YKFramwork.ResMgr.Editor
             {
                 resInfo = new ResJsonData();
             }
-
-            RefreshGroupList();
         }
 
         public static bool ListIsSame(List<string> l1, List<string> l2)
@@ -140,6 +85,24 @@ namespace YKFramwork.ResMgr.Editor
                 foreach (var v in l1)
                 {
                     if (!l2.Contains(v))
+                    {
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+
+            return false;
+        }
+        
+        public static bool ListIsSame(List<ResGroupCfg> l1, List<ResGroupCfg> l2)
+        {
+            if (l1.Count == l2.Count)
+            {
+                foreach (var v in l1)
+                {
+                    if (!l2.Exists(v2 => v2.groupName == v.groupName))
                     {
                         return false;
                     }
@@ -186,6 +149,12 @@ namespace YKFramwork.ResMgr.Editor
                             break;
                         }
                     }
+
+                    if (!ListIsSame(loaclFileresInfo.groups,resInfo.groups))
+                    {
+                        ret = true;
+                    }
+                    
                 }
 
                 if (loaclFileresInfo == null || loaclFileresInfo.resources.Count == resInfo.resources.Count)
@@ -213,7 +182,6 @@ namespace YKFramwork.ResMgr.Editor
             File.WriteAllText(ResConfig.ResJsonCfgFilePath, jsonStr);
             UnityEditor.AssetDatabase.SaveAssets();
             UnityEditor.AssetDatabase.Refresh();
-            RefreshGroupList();
 
             return true;
         }
@@ -304,15 +272,15 @@ namespace YKFramwork.ResMgr.Editor
         /// 删除所有某个资源组
         /// </summary>
         /// <param name="b"></param>
-        internal static void HandleGroupsDelete(List<AssetMode.GroupInfo> b)
+        internal static void HandleGroupsDelete(List<string> groupNames)
         {
             List<string> delAssets = new List<string>();
-            foreach (AssetMode.GroupInfo groupName in b)
+            foreach (string groupName in groupNames)
             {
                 ResGroupCfg load = null;
                 foreach (ResGroupCfg da in resInfo.groups)
                 {
-                    if (da.groupName == groupName.Name)
+                    if (da.groupName == groupName)
                     {
                         load = da;
                         break;
@@ -335,7 +303,6 @@ namespace YKFramwork.ResMgr.Editor
             }
 
             Update();
-            RefreshGroupList();
         }
 
         /// <summary>
@@ -347,7 +314,6 @@ namespace YKFramwork.ResMgr.Editor
             data.keys = new List<string>();
             data.groupName = GetGetUniqueName();
             resInfo.groups.Add(data);
-            RefreshGroupList();
             return data.groupName;
         }
 
@@ -421,10 +387,7 @@ namespace YKFramwork.ResMgr.Editor
                     return v.address;
                 }
             }
-            //todo:这里需要判断是否存在资源里面存在直接拉
             var assetInfo = InitAssetInfo(groupName, path);
-
-           
             resInfo.resources.Add(assetInfo);
             data.keys.Add(assetInfo.address);
             return assetInfo.address;
@@ -462,35 +425,45 @@ namespace YKFramwork.ResMgr.Editor
 
             var rootPath = Path.GetDirectoryName(path);
             rootPath = rootPath.Replace("\\", "/");
+            string abName = string.Empty;
             if (rootPath != null)
             {
                 if (da.isResourcesPath)
                 {
-                    rootPath = rootPath.Substring(rootPath.LastIndexOf("/Resources/", StringComparison.Ordinal) + 11);
+                    int index = rootPath.LastIndexOf("/Resources", StringComparison.Ordinal);
+                    if (rootPath.Length <= index + 11)
+                    {
+                        abName = string.Empty;
+                    }
+                    else
+                    {
+                        abName = rootPath.Substring(index+11);
+                    }
                 }
                 else
                 {
-                    rootPath = rootPath.Replace(ResConfig.ExternalResDir + "/", "").Replace("/", "_");
+                    abName = rootPath.Replace(ResConfig.ExternalResDir + "/", "").Replace("/", "_");
+                    
                 }
                 //AssetBundle.LoadFromFileAsync()
             }
-            da.ABName = rootPath;
+            da.ABName = abName;
             var name1 = Path.GetFileName(path);
             if (da.isResourcesPath)
             {
                 if (string.IsNullOrEmpty(da.ABName))
                 {
                     
-                    da.url = "r:" + name1;
+                    da.url = "r://" + name1;
                 }
                 else
                 {
-                    da.url = "r:" + da.ABName + "/" + name1;
+                    da.url = "r://" + da.ABName + "/" + name1;
                 }
             }
             else
             {
-                da.url = "e:" + da.ABName+"/" + name1;
+                da.url = "e://" + da.ABName+"/" + name1;
             }
             return da;
         }
@@ -561,29 +534,12 @@ namespace YKFramwork.ResMgr.Editor
             return name;
         }
 
-
-        public static void RefreshGroupList()
-        {
-            gropsEditorInfo.Clear();
-            if (resInfo != null)
-            {
-                int id = 0;
-                foreach (string name in resInfo.GetAllGroupNames())
-                {
-                    gropsEditorInfo.Add(new GroupInfo(id, name));
-                    id++;
-                }
-            }
-        }
-
         public static void Refresh()
         {
             if (loaclFileresInfo != null)
             {
                 resInfo = JsonUtility.FromJson<ResJsonData>(JsonUtility.ToJson(loaclFileresInfo));
             }
-
-            RefreshGroupList();
         }
     }
 }
