@@ -147,10 +147,12 @@ namespace YKFramwork.ResMgr
 
         private void Finished()
         {
-            foreach (var abname in allLoadABs)
+            for (var index = 0; index < allLoadABs.Count; index++)
             {
+                var abname = allLoadABs[index];
                 ResMgr.Instance.ABMgr.Release(abname);
             }
+
             if(OnCompleted != null)
                 OnCompleted(this.mGroupName);
         }

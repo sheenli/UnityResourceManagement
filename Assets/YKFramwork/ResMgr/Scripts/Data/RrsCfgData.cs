@@ -98,8 +98,9 @@ namespace YKFramwork.ResMgr
         public bool HasGroup(string groupName)
         {
             string[] strs = GetAllGroupNames();
-            foreach (string name in strs)
+            for (var index = 0; index < strs.Length; index++)
             {
+                string name = strs[index];
                 if (name == groupName)
                 {
                     return true;
@@ -111,8 +112,9 @@ namespace YKFramwork.ResMgr
 
         public ResGroupCfg GetGroupInfo(string groupName)
         {
-            foreach (ResGroupCfg scene in groups)
+            for (var index = 0; index < groups.Count; index++)
             {
+                ResGroupCfg scene = groups[index];
                 if (groupName == scene.groupName)
                 {
                     return scene;
@@ -129,8 +131,9 @@ namespace YKFramwork.ResMgr
         public string[] GetAllGroupNames()
         {
             List<string> list = new List<string>();
-            foreach (ResGroupCfg scene in groups)
+            for (var index = 0; index < groups.Count; index++)
             {
+                ResGroupCfg scene = groups[index];
                 list.Add(scene.groupName);
             }
 
@@ -147,8 +150,9 @@ namespace YKFramwork.ResMgr
             List<string> list = new List<string>();
             if (!string.IsNullOrEmpty(groupName))
             {
-                foreach (ResGroupCfg scene in groups)
+                for (var index = 0; index < groups.Count; index++)
                 {
+                    ResGroupCfg scene = groups[index];
                     if (scene.groupName == groupName)
                     {
                         return scene.keys.ToArray();

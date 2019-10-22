@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -275,8 +276,10 @@ namespace YKFramwork.ResMgr
         public void UnloadUnused()
         {
             var list = new List<string>();
-            foreach (var addr in mAllRes.Keys)
+            var keys = mAllRes.Keys.ToList();
+            for (var index = 0; index < keys.Count; index++)
             {
+                var addr = keys[index];
                 var info = cfg.ResData.GetResInfo(addr);
                 if (!info.isKeepInMemory)
                 {
@@ -284,8 +287,9 @@ namespace YKFramwork.ResMgr
                 }
             }
 
-            foreach (var addr in list)
+            for (var index = 0; index < list.Count; index++)
             {
+                var addr = list[index];
                 mAllRes.Remove(addr);
             }
 

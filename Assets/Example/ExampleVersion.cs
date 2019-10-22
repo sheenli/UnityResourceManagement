@@ -16,9 +16,10 @@ public class ExampleVersion:MonoBehaviour
             {
                 var ver = new YKFramwork.ResMgr.VersionCtrl.Version(wepop.webRequest.downloadHandler.data);
                 Debug.Log(ver.version);
-                foreach (var abInfo in ver.AllAB)
+                for (var index = 0; index < ver.AllAB.Count; index++)
                 {
-                    Debug.Log("name:"+abInfo.name+"/sha1:"+abInfo.sha1+"/size:"+abInfo.size);
+                    var abInfo = ver.AllAB[index];
+                    Debug.Log("name:" + abInfo.name + "/sha1:" + abInfo.sha1 + "/size:" + abInfo.size);
                 }
             }
         };
