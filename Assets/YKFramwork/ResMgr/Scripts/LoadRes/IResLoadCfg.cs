@@ -12,5 +12,7 @@
         
         string EditorResJsonPath { get; }
         
+        string AssetBundleVariant { get; }
+        
     }
 }

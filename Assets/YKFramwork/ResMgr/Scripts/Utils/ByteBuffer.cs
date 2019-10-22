@@ -29,6 +29,7 @@ namespace YKFramwork.ResMgr.Utils
             {
                 stream = new MemoryStream();
                 writer = new BinaryWriter(stream);
+                
             }
         }
 
@@ -52,10 +53,10 @@ namespace YKFramwork.ResMgr.Utils
         {
             writer.Write((int)v);
         }
-        //大端包长
+        
         public void WriteShort(ushort v)
         {
-            writer.Write(Converter.GetBigEndian((ushort)v));
+            writer.Write(v);
         }
 
         public void WriteLong(long v)
@@ -80,14 +81,12 @@ namespace YKFramwork.ResMgr.Utils
         public void WriteString(string v)
         {
             byte[] bytes = Encoding.UTF8.GetBytes(v);
-            //writer.Write((ushort)bytes.Length);
+            writer.Write((ushort)bytes.Length);
             writer.Write(bytes);
         }
 
         public void WriteBytes(byte[] v)
         {
-            //writer.Write((ushort)v.Length);
-            //写入转换成大端，写入2个字节的长度
             WriteShort((ushort)v.Length );
             writer.Write(v);
         }
@@ -104,8 +103,7 @@ namespace YKFramwork.ResMgr.Utils
 
         public ushort ReadShort()
         {
-            //return (ushort)reader.ReadInt16();
-            return Converter.GetBigEndian((ushort)reader.ReadInt16());
+            return reader.ReadUInt16();
         }
 
         public long ReadLong()

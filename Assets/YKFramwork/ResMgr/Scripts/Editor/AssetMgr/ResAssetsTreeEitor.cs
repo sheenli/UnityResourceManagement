@@ -199,6 +199,7 @@ namespace YKFramwork.ResMgr.Editor
                 UnityEngine.Object o = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(assetItem.asset.data.path);
                 EditorGUIUtility.PingObject(o);
                 Selection.activeObject = o;
+//                Resources.UnloadAsset(o);
             }
         }
 

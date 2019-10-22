@@ -27,7 +27,7 @@ namespace YKFramwork.ResMgr.Editor
             mCurrentSelectAssets = null;
             if (preEditor != null)
             {
-                
+                //Resources.UnloadAsset(preEditor);
                 Object.DestroyImmediate(preEditor);
                 preEditor = null;
             }
@@ -220,7 +220,7 @@ namespace YKFramwork.ResMgr.Editor
                 {
                     if (preEditor != null)
                     {
-                
+                        //Resources.UnloadAsset(preEditor);
                         Object.DestroyImmediate(preEditor);
                         preEditor = null;
                     }

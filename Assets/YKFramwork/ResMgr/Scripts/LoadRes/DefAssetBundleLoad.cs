@@ -67,12 +67,13 @@ namespace YKFramwork.ResMgr
             if (mABs.ContainsKey(abName))
             {
                 if (callback != null) callback.Invoke(mABs[abName]);
+                return;
             }
 
             sb.Clear();
             sb.Append(ResMgr.Instance.cfg.RootABPath)
                 .Append("/")
-                .Append(abName)
+                .Append(abName.ToLower())
                 .Append(".")
                 .Append(ResMgr.Instance.cfg.AssetBundleVariant);
 
@@ -81,8 +82,9 @@ namespace YKFramwork.ResMgr
                 var ab = AssetBundle.LoadFromFile(sb.ToString());
                 if (ab != null)
                 {
-                    mABs.Add(abName,ab);
+                    mABs[abName] = ab;
                 }
+                if (callback != null) callback.Invoke(ab);
             }
             catch (Exception e)
             {

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace YKFramwork.ResMgr
 {
@@ -52,7 +53,7 @@ namespace YKFramwork.ResMgr
                 }
                 else
                 {
-                    if (IsNeedLoadAB && !mLoadAbs.Contains(info.ABName))
+                    if (!info.isResourcesPath && IsNeedLoadAB && !mLoadAbs.Contains(info.ABName))
                     {
                         mLoadAbs.Add(info.ABName);
                     }
@@ -101,6 +102,7 @@ namespace YKFramwork.ResMgr
             if (mAssetAddrs.Count == 0)
             {
                 Finished();
+                return;
             }
             var assetAddr = mAssetAddrs[0];
             var resInfo = ResMgr.Instance.cfg.ResData.GetResInfo(assetAddr);

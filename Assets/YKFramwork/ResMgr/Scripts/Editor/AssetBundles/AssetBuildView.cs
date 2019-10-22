@@ -80,6 +80,8 @@ namespace YKFramwork.ResMgr.Editor
             string newFileName = outPath+"/" + Path.GetFileName(ResConfig.ResJsonCfgFilePath);
             File.Copy(ResConfig.ResJsonCfgFilePath,newFileName,true);
             BuildABVersionInfo(outPath, ver, buils);
+            GC.Collect();
+            Resources.UnloadUnusedAssets();
             AssetDatabase.Refresh();
         }
 
@@ -92,7 +94,7 @@ namespace YKFramwork.ResMgr.Editor
                 if (list.Count > 0)
                 {
                     var bs = new AssetBundleBuild();
-                    bs.assetBundleName = ab;
+                    bs.assetBundleName = ab.ToLower();
                     bs.assetBundleVariant = "bytes";
                     List<string> assets = new List<string>();
                     foreach (var v in list)
@@ -136,7 +138,7 @@ namespace YKFramwork.ResMgr.Editor
                 buffer.WriteInt(builds.Count);
                 foreach (var b in builds)
                 {
-                    FileInfo fi = new FileInfo(path+"/"+b.assetBundleName+"."+b.assetBundleVariant);
+                    FileInfo fi = new FileInfo(path+"/"+b.assetBundleName.ToLower()+"."+b.assetBundleVariant);
                     buffer.WriteString(b.assetBundleName);
                     buffer.WriteString(GetHash(fi.FullName));
                     buffer.WriteLong(fi.Length);
@@ -147,7 +149,7 @@ namespace YKFramwork.ResMgr.Editor
             }
             catch (Exception ex)
             {
-                
+                throw ex;
             }
         }
     }

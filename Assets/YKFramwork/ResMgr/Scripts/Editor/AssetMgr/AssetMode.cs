@@ -425,7 +425,9 @@ namespace YKFramwork.ResMgr.Editor
 
             var rootPath = Path.GetDirectoryName(path);
             rootPath = rootPath.Replace("\\", "/");
+            var name1 = Path.GetFileName(path);
             string abName = string.Empty;
+            string url = string.Empty;
             if (rootPath != null)
             {
                 if (da.isResourcesPath)
@@ -434,37 +436,26 @@ namespace YKFramwork.ResMgr.Editor
                     if (rootPath.Length <= index + 11)
                     {
                         abName = string.Empty;
+                        url = "r://" + name1;
                     }
                     else
                     {
+                        url = "r://" + da.ABName + "/" + name1;
                         abName = rootPath.Substring(index+11);
                     }
                 }
                 else
                 {
-                    abName = rootPath.Replace(ResConfig.ExternalResDir + "/", "").Replace("/", "_");
+                    var path1 = rootPath.Replace(ResConfig.ExternalResDir + "/", "");;
+                    url = "e://" + path1+"/" + name1;
+                    abName = path1.Replace("/", "_");
                     
                 }
                 //AssetBundle.LoadFromFileAsync()
             }
+
             da.ABName = abName;
-            var name1 = Path.GetFileName(path);
-            if (da.isResourcesPath)
-            {
-                if (string.IsNullOrEmpty(da.ABName))
-                {
-                    
-                    da.url = "r://" + name1;
-                }
-                else
-                {
-                    da.url = "r://" + da.ABName + "/" + name1;
-                }
-            }
-            else
-            {
-                da.url = "e://" + da.ABName+"/" + name1;
-            }
+            da.url = url;
             return da;
         }
 
