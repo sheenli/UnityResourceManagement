@@ -1,0 +1,56 @@
+{
+    "groups": [
+        {
+            "groupName": "test",
+            "keys": [
+                "AchievementUnlocked_mp3",
+                "Cube_prefab",
+                "Cube_Red_G_prefab"
+            ]
+        },
+        {
+            "groupName": "test2",
+            "keys": [
+                "Cube_Red_prefab"
+            ]
+        }
+    ],
+    "resources": [
+        {
+            "url": "e://New Folder 2/New Folder/Cube_Red.prefab",
+            "ABName": "New Folder 2_New Folder",
+            "path": "Assets/ExternalRes/New Folder 2/New Folder/Cube_Red.prefab",
+            "address": "Cube_Red_prefab",
+            "type": ".prefab",
+            "isKeepInMemory": true,
+            "isResourcesPath": false
+        },
+        {
+            "url": "e://New Folder/AchievementUnlocked.mp3",
+            "ABName": "New Folder",
+            "path": "Assets/ExternalRes/New Folder/AchievementUnlocked.mp3",
+            "address": "AchievementUnlocked_mp3",
+            "type": ".mp3",
+            "isKeepInMemory": false,
+            "isResourcesPath": false
+        },
+        {
+            "url": "r://Cube.prefab",
+            "ABName": "",
+            "path": "Assets/Resources/Cube.prefab",
+            "address": "Cube_prefab",
+            "type": ".prefab",
+            "isKeepInMemory": true,
+            "isResourcesPath": true
+        },
+        {
+            "url": "e://New Folder 2/Cube_Red_G.prefab",
+            "ABName": "New Folder 2",
+            "path": "Assets/ExternalRes/New Folder 2/Cube_Red_G.prefab",
+            "address": "Cube_Red_G_prefab",
+            "type": ".prefab",
+            "isKeepInMemory": true,
+            "isResourcesPath": false
+        }
+    ]
+}

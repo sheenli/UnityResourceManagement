@@ -1,0 +1,30 @@
+ManifestFileVersion: 0
+CRC: 1974041534
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 04cb0ac6c06491677d58ae466f40e74f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: d9fe965a6b253fb9dbd3e1cb08b7d66f
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+Assets:
+- Assets/ExternalRes/New Folder 2/Cube_Red_G.prefab
+Dependencies: []

@@ -1,0 +1,16 @@
+ManifestFileVersion: 0
+CRC: 3853483425
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e70850428c9b89bb568a28b69347ce0e
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 3f7d0c5e0986ec71841622bcb2f9be1c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+Assets:
+- Assets/ExternalRes/New Folder/AchievementUnlocked.mp3
+Dependencies: []
