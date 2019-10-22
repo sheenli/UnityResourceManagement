@@ -172,7 +172,7 @@ namespace YKFramwork.ResMgr.Editor
             {
                 id++;
                 AssetMode.AssetInfo assetInfo = new AssetMode.AssetInfo(id,a.address);
-                assetInfo.data = a;
+                //assetInfo.data = a;
                 this.assets.Add(assetInfo);
             }
             Reload();

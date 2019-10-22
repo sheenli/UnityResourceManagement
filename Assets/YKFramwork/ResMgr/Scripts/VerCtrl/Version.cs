@@ -31,6 +31,7 @@ namespace YKFramwork.ResMgr.VersionCtrl
                 info.size = buffer.ReadLong();
                 AllAB.Add(info);
             }
+            buffer.Close();
         }
     }
 }

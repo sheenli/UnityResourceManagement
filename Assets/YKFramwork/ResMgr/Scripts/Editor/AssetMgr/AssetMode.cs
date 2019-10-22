@@ -15,7 +15,7 @@ namespace YKFramwork.ResMgr.Editor
         /// </summary>
         public class AssetInfo
         {
-            public ResInfoData data;
+            public ResInfoData data { get; }
             public int NameHashCode = 0;
             public string Name;
             public long size;
@@ -440,8 +440,8 @@ namespace YKFramwork.ResMgr.Editor
                     }
                     else
                     {
-                        url = "r://" + da.ABName + "/" + name1;
                         abName = rootPath.Substring(index+11);
+                        url = "r://" + abName + "/" + name1;
                     }
                 }
                 else

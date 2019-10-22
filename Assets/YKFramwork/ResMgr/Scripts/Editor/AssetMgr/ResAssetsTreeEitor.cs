@@ -17,7 +17,7 @@ namespace YKFramwork.ResMgr.Editor
         /// </summary>
         public string groupName = null;
 
-        public List<AssetMode.AssetInfo> assets = new List<AssetMode.AssetInfo>();
+        private List<AssetMode.AssetInfo> assets = new List<AssetMode.AssetInfo>();
 
 
         public AssetGroupMgr mController;
@@ -118,6 +118,14 @@ namespace YKFramwork.ResMgr.Editor
 
         protected override TreeViewItem BuildRoot()
         {
+            //AssetMode.Rebuild();
+            int id = 0;
+            assets.Clear();
+            foreach (var str in AssetMode.resInfo.GetAssetsNames(this.groupName))
+            {
+                AssetMode.AssetInfo info = new AssetMode.AssetInfo(id++, str);
+                assets.Add(info);
+            }
             var root = new TreeViewItem();
             root.children = new System.Collections.Generic.List<UnityEditor.IMGUI.Controls.TreeViewItem>();
             root.id = -1;
@@ -253,19 +261,19 @@ namespace YKFramwork.ResMgr.Editor
             //从场景拖过来的不行//
             foreach (var assetPath in DragAndDrop.paths)
             {
+                bool isFolder = AssetDatabase.IsValidFolder(assetPath);
                 string path = FileUtil.GetProjectRelativePath(assetPath);
-                string rootPath = Path.GetDirectoryName(assetPath)?.Replace("\\","/");
+                string rootPath = Path.GetDirectoryName(assetPath).Replace("\\","/");
                 if (!assetPath.StartsWith(FileUtil.GetProjectRelativePath(assetPath)) &&
                     !assetPath.Contains("/Resources/") &&
                     !assetPath.Contains(ResConfig.ExternalResDir))
                 {
                     return false;
                 }
+                if (!isFolder && rootPath == ResConfig.ExternalResDir) return false;
+                var t = AssetDatabase.GetMainAssetTypeAtPath(assetPath);
 
-                if (rootPath == ResConfig.ExternalResDir) return false;
-                Type t = AssetDatabase.GetMainAssetTypeAtPath(assetPath);
-
-                if (!ResConfig.CanDropType.Contains(t) && !AssetDatabase.IsValidFolder(assetPath))
+                if (!ResConfig.CanDropType.Contains(t) && !isFolder)
                 {
                     return false;
                 }
@@ -430,6 +438,9 @@ namespace YKFramwork.ResMgr.Editor
             assets.Clear();
             this.groupName = groupName;
             AddAsset(AssetMode.resInfo.GetAssetsNames(groupName));
+            {
+                AddAsset(AssetMode.resInfo.GetAssetsNames(groupName));
+            }
             ReloadAndSelect(new List<int>());
             UpdateSelectedAssets(new List<AssetMode.AssetInfo>());
             currentSelect = -1;

@@ -142,6 +142,7 @@ namespace YKFramwork.ResMgr.Editor
                 if (args.acceptedRename)
                 {
                     Reload();
+                    mController.UpdateSelectedGroup(args.newName);
                     //ReloadAndSelect(args.itemID, false);
                 }
             }
@@ -271,6 +272,7 @@ namespace YKFramwork.ResMgr.Editor
 
             AssetMode.HandleGroupsDelete(names);
             ReloadAndSelect(new List<int>());
+            mController.UpdateSelectedGroup(string.Empty);
         }
 
         void RenameGroupName(object context)
