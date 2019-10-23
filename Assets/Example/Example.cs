@@ -10,7 +10,8 @@ public class Example : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cfg = ResMgr.Instance.cfg as DefResLoadCfg;
+        cfg = new DefResLoadCfg();
+        ResMgr.Instance.cfg = cfg;
         cfg.Init(() =>
         {
             Debug.LogError("初始化配置成功");

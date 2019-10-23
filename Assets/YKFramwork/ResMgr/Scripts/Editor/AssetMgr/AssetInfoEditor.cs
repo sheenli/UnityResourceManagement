@@ -72,7 +72,7 @@ namespace YKFramwork.ResMgr.Editor
 
                     if (mCurrentSelectAssets != null)
                     {
-                        GUILayout.TextField(mCurrentSelectAssets.data.address, inputSt);
+                        GUILayout.Label(mCurrentSelectAssets.data.address, inputSt);
                     }
                     else
                     {
@@ -113,6 +113,23 @@ namespace YKFramwork.ResMgr.Editor
                 }
 
                 GUILayout.Space(offset);
+                
+                GUILayout.BeginHorizontal();
+                {
+                    string url = "";
+                    if (mCurrentSelectAssets != null)
+                    {
+                        url = mCurrentSelectAssets.data.url;
+                    }
+
+                    GUILayout.Label(new GUIContent(Language.ResUrl+"："), labelSt);
+                    GUILayout.Label(url, inputSt);
+                    GUILayout.FlexibleSpace();
+                    GUILayout.EndHorizontal();
+                }
+
+                GUILayout.Space(offset);
+                
                 GUILayout.BeginHorizontal();
                 {
                     bool flag = false;
@@ -147,7 +164,6 @@ namespace YKFramwork.ResMgr.Editor
                     GUILayout.FlexibleSpace();
                     GUILayout.EndHorizontal();
                 }
-
 //                GUILayout.Space(offset);
 //                GUILayout.BeginHorizontal();
 //                {

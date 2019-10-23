@@ -5,6 +5,7 @@ using System.Security.Cryptography;
 using UnityEditor;
 using UnityEngine;
 using YKFramwork.ResMgr.Utils;
+using YKFramwork.ResMgr.VersionCtrl;
 
 namespace YKFramwork.ResMgr.Editor
 {
@@ -68,7 +69,8 @@ namespace YKFramwork.ResMgr.Editor
                         | BuildAssetBundleOptions.DeterministicAssetBundle
                         | BuildAssetBundleOptions.ForceRebuildAssetBundle);
             mBuildAssetBundleOptions = (BuildAssetBundleOptions)EditorPrefs.GetInt("BuildAssetBundleOptions", flag);
-            outPath = EditorPrefs.GetString("ABoutPath", Application.streamingAssetsPath);
+            outPath = EditorPrefs.GetString("ABoutPath", FileUtil.GetProjectRelativePath(Application.streamingAssetsPath));
+            
             //throw new System.NotImplementedException();
         }
 
@@ -78,6 +80,7 @@ namespace YKFramwork.ResMgr.Editor
             AssetMode.Rebuild();
             var buils = BuildSelect(outPath, AssetMode.GetAllBundleNames(), target, options);
             string newFileName = outPath+"/" + Path.GetFileName(ResConfig.ResJsonCfgFilePath);
+            if(File.Exists(newFileName)) File.Delete(newFileName);
             File.Copy(ResConfig.ResJsonCfgFilePath,newFileName,true);
             BuildABVersionInfo(outPath, ver, buils);
             GC.Collect();
@@ -133,19 +136,17 @@ namespace YKFramwork.ResMgr.Editor
         {
             try
             {
-                ByteBuffer buffer = new ByteBuffer();
-                buffer.WriteString(ver);
-                buffer.WriteInt(builds.Count);
+                var version = new VersionCtrl.Version {version = ver};
                 foreach (var b in builds)
                 {
-                    FileInfo fi = new FileInfo(path+"/"+b.assetBundleName.ToLower()+"."+b.assetBundleVariant);
-                    buffer.WriteString(b.assetBundleName);
-                    buffer.WriteString(GetHash(fi.FullName));
-                    buffer.WriteLong(fi.Length);
+                    var fi = new FileInfo(path+"/"+b.assetBundleName.ToLower()+"."+b.assetBundleVariant);
+                    var abInfo = new VersionCtrl.Version.ABInfo();
+                    abInfo.name = b.assetBundleName;
+                    abInfo.sha1 = GetHash(fi.FullName);
+                    abInfo.size = fi.Length;
                 }
                
-                File.WriteAllBytes(path+"/version",buffer.ToBytes());
-                buffer.Close();
+                File.WriteAllBytes(path+"/version",version.ToBytes());
             }
             catch (Exception ex)
             {
