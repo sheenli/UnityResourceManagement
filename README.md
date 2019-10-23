@@ -1,146 +1,146 @@
-# ×ÊÔ´¹ÜÀíÆ÷
+# èµ„æºç®¡ç†å™¨
 
-## ±à¼­¹¦ÄÜ
+## ç¼–è¾‘åŠŸèƒ½
 
-> ¶Ô×ÊÔ´½øĞĞ±à×é£¬¿ÉÒÔ×ÊÔ´¿ÉÒÔ°´×é½øĞĞ¼ÓÔØ£¬²»ÓÃ²ÙĞÄ×ÊÔ´À´Ô´ÓÚÄÇĞ©assetbundle£¬Í¨¹ı×ÊÔ´¹ÜÀíÆ÷¿ÉÒÔÈÃÃ¿¸ö×ÊÔ´Éú³ÉÎ¨Ò»µØÖ·£¬µ±×ÊÔ´ÒÆ¶¯É¾³ıµÈ²Ù×÷µÄÊ±ºò»á×Ô¶¯°Ñ×ÊÔ´ÖØĞÂÁ´½Óµ½ĞÂµÄ×ÊÔ´£¬Í¬Ê±Ö§³Ö±à¼­Æ÷ÏÂÊ¹ÓÃ´ò°üºÍ²»´ò°üassetbundleµÄ·½Ê½½øĞĞ£¬¿ÉÒÔËæÊ±ÇĞ»»¡£
+> å¯¹èµ„æºè¿›è¡Œç¼–ç»„ï¼Œå¯ä»¥èµ„æºå¯ä»¥æŒ‰ç»„è¿›è¡ŒåŠ è½½ï¼Œä¸ç”¨æ“å¿ƒèµ„æºæ¥æºäºé‚£äº›assetbundleï¼Œé€šè¿‡èµ„æºç®¡ç†å™¨å¯ä»¥è®©æ¯ä¸ªèµ„æºç”Ÿæˆå”¯ä¸€åœ°å€ï¼Œå½“èµ„æºç§»åŠ¨åˆ é™¤ç­‰æ“ä½œçš„æ—¶å€™ä¼šè‡ªåŠ¨æŠŠèµ„æºé‡æ–°é“¾æ¥åˆ°æ–°çš„èµ„æºï¼ŒåŒæ—¶æ”¯æŒç¼–è¾‘å™¨ä¸‹ä½¿ç”¨æ‰“åŒ…å’Œä¸æ‰“åŒ…assetbundleçš„æ–¹å¼è¿›è¡Œï¼Œå¯ä»¥éšæ—¶åˆ‡æ¢ã€‚
 
-×ÊÔ´¼ÓÔØ·½Ê½¿ÉÒÔÓÉÄã×Ô¼º×Ô¶¨Òå
+èµ„æºåŠ è½½æ–¹å¼å¯ä»¥ç”±ä½ è‡ªå·±è‡ªå®šä¹‰
 
-## ±à¼­Æ÷Ê¹ÓÃ
+## ç¼–è¾‘å™¨ä½¿ç”¨
 
-´Ówindow/ResMgr ²Ëµ¥À¸ºô³ö½çÃæ
+ä»window/ResMgr èœå•æ å‘¼å‡ºç•Œé¢
 > ![Alt text](./1571800905844.png)
-> ×ÊÔ´¹ÜÀíÆ÷½çÃæ
+> èµ„æºç®¡ç†å™¨ç•Œé¢
 
 
-### ×ÊÔ´¹ÜÀíÆ÷½çÃæ
+### èµ„æºç®¡ç†å™¨ç•Œé¢
 
-**×ÊÔ´×é**: 
-ÔÚ×ÊÔ´¹ÜÀíÆ÷µÄ×ó²àÊÇ×ÊÔ´×é¹ÜÀí
-ÓÒ¼üµã»÷×ó²àµÄ¿Õ°×Î»ÖÃ¿ÉÒÔÌí¼ÓÒ»¸öĞÂµÄ×ÊÔ´×é£¬×ÊÔ´×éÃû×Ö¶¼ÊÇÎ¨Ò»µÄ£¬µ¥»÷¿ÉÒÔÑ¡ÖĞ×ÊÔ´£¬Ñ¡ÖĞºóÓÒ¼ü¿ÉÒÔ¸ÄÃû¿ÉÒÔÉ¾³ı
+**èµ„æºç»„**: 
+åœ¨èµ„æºç®¡ç†å™¨çš„å·¦ä¾§æ˜¯èµ„æºç»„ç®¡ç†
+å³é”®ç‚¹å‡»å·¦ä¾§çš„ç©ºç™½ä½ç½®å¯ä»¥æ·»åŠ ä¸€ä¸ªæ–°çš„èµ„æºç»„ï¼Œèµ„æºç»„åå­—éƒ½æ˜¯å”¯ä¸€çš„ï¼Œå•å‡»å¯ä»¥é€‰ä¸­èµ„æºï¼Œé€‰ä¸­åå³é”®å¯ä»¥æ”¹åå¯ä»¥åˆ é™¤
 
-**×ÊÔ´ĞÅÏ¢**: 
-ÓÒ²àÉÏ°ë²¿·ÖÊÇÄãµ±Ç°Ñ¡ÖĞµÄ×ÊÔ´×éÀïÃæÑ¡ÖĞµÄ×ÊÔ´ĞÅÏ¢Ä¿Ç°Ö»ÄÜ ¸ü¸Ä`×ÊÔ´ÊÇ·ñ³£×¤ÄÚ´æ`
->`ÌØ±ğËµÃ÷:` ×ÊÔ´µÄurlÉú³É¹æÔòÎª resourceÏÂµÄurlÎªr://folderName/1.prefab ÕâÑùµÄ¸ñÊ½   abÄ¿Â¼ÏÂµÄÒÔÍâ²¿ÎÄ¼ş¼ĞÂ·¾¶Îª¸ùÂ·¾¶
->ÀıÈç£º![Alt text](./1571801116798.png)
->Cube_b.prefabµÄurlÎª e://New Folder/Cube_b.prefab
+**èµ„æºä¿¡æ¯**: 
+å³ä¾§ä¸ŠåŠéƒ¨åˆ†æ˜¯ä½ å½“å‰é€‰ä¸­çš„èµ„æºç»„é‡Œé¢é€‰ä¸­çš„èµ„æºä¿¡æ¯ç›®å‰åªèƒ½ æ›´æ”¹`èµ„æºæ˜¯å¦å¸¸é©»å†…å­˜`
+>`ç‰¹åˆ«è¯´æ˜:` èµ„æºçš„urlç”Ÿæˆè§„åˆ™ä¸º resourceä¸‹çš„urlä¸ºr://folderName/1.prefab è¿™æ ·çš„æ ¼å¼   abç›®å½•ä¸‹çš„ä»¥å¤–éƒ¨æ–‡ä»¶å¤¹è·¯å¾„ä¸ºæ ¹è·¯å¾„
+>ä¾‹å¦‚ï¼š![Alt text](./1571801116798.png)
+>Cube_b.prefabçš„urlä¸º e://New Folder/Cube_b.prefab
 
-**×ÊÔ´ÁĞ±í**£º
-ÓÒ²àÏÂ°ë²¿·ÖÊÇÄãÑ¡ÖĞµÄ×ÊÔ´×éÀïÃæ°üº¬µÄ×ÊÔ´ÁĞ±í
-Ë«»÷×ÊÔ´ÁĞ±íÀïÃæµÄ×ÊÔ´¿ÉÒÔÑ¡ÖĞ¹¤³ÌÀïÃæµÄÎÄ¼ş
-Á½´Îµ¥»÷¿ÉÒÔĞŞ¸Ä×ÊÔ´µÄÎ¨Ò»µØÖ·£¬Ìí¼ÓÊ±Ä¬ÈÏµÄ×ÊÔ´µØÖ·Îª ×ÊÔ´Ãû_×ÊÔ´Ãûºó×º
+**èµ„æºåˆ—è¡¨**ï¼š
+å³ä¾§ä¸‹åŠéƒ¨åˆ†æ˜¯ä½ é€‰ä¸­çš„èµ„æºç»„é‡Œé¢åŒ…å«çš„èµ„æºåˆ—è¡¨
+åŒå‡»èµ„æºåˆ—è¡¨é‡Œé¢çš„èµ„æºå¯ä»¥é€‰ä¸­å·¥ç¨‹é‡Œé¢çš„æ–‡ä»¶
+ä¸¤æ¬¡å•å‡»å¯ä»¥ä¿®æ”¹èµ„æºçš„å”¯ä¸€åœ°å€ï¼Œæ·»åŠ æ—¶é»˜è®¤çš„èµ„æºåœ°å€ä¸º èµ„æºå_èµ„æºååç¼€
 
-> ` ×¢Òâ:`
-> ×ÊÔ´µØÖ·ÊÇÈ«¾ÖÎ¨Ò»µÄ
-> µ±¹´Ñ¡³£×¤ÄÚ´æºó×ÊÔ´½«ÓÀÔ¶²»»áÊÍ·Å
+> ` æ³¨æ„:`
+> èµ„æºåœ°å€æ˜¯å…¨å±€å”¯ä¸€çš„
+> å½“å‹¾é€‰å¸¸é©»å†…å­˜åèµ„æºå°†æ°¸è¿œä¸ä¼šé‡Šæ”¾
 
 
-**Ìí¼Ó×ÊÔ´ **£º ¿ÉÒÔÑ¡ÖĞ×ÊÔ´×éºó°Ñ×ÊÔ´Íù×ÊÔ´ÁĞ±íµÄ¿Õ°×´¦ÍÏ¿ÉÒÔ°ÑÄãÍÏ½øÀ´µÄ×ÊÔ´Ìí¼Óµ½×ÊÔ´×é£¬Ò²Ö§³ÖÍÏÈëÎÄ¼ş¼Ğ
+**æ·»åŠ èµ„æº **ï¼š å¯ä»¥é€‰ä¸­èµ„æºç»„åæŠŠèµ„æºå¾€èµ„æºåˆ—è¡¨çš„ç©ºç™½å¤„æ‹–å¯ä»¥æŠŠä½ æ‹–è¿›æ¥çš„èµ„æºæ·»åŠ åˆ°èµ„æºç»„ï¼Œä¹Ÿæ”¯æŒæ‹–å…¥æ–‡ä»¶å¤¹
 
-> `×¢Òâ£º` ÍÏÈëÎÄ¼ş¼ĞµÄÊ±ºòÖ»»á°Ñµ±Ç°ÎÄ¼ş¼ĞÏÂµÄ×ÊÔ´Ìí¼Óµ½×ÊÔ´×é£¬²»»áÌí¼Ó×ÓÎÄ¼ş×ÊÔ´
+> `æ³¨æ„ï¼š` æ‹–å…¥æ–‡ä»¶å¤¹çš„æ—¶å€™åªä¼šæŠŠå½“å‰æ–‡ä»¶å¤¹ä¸‹çš„èµ„æºæ·»åŠ åˆ°èµ„æºç»„ï¼Œä¸ä¼šæ·»åŠ å­æ–‡ä»¶èµ„æº
 
-### ±à¼­Æ÷×Ô¶¨Òå½Ó¿Ú 
+### ç¼–è¾‘å™¨è‡ªå®šä¹‰æ¥å£ 
 YKFramwork.ResMgr.Editor.IResConfig 
 ``` cs
-string JsonFilePath { get; } //×ÊÔ´jsonÎÄ¼ş±£´æÂ·¾¶
-string ExternalResDir { get; } //Òª´ò°ü³ÉassetbundleµÄÍâ²¿ÎÄ¼ş¼Ğ
-List<Type> CanDropType { get; } //ÄÜÍü×ÊÔ´¹ÜÀíÀïÃæÍÏµÄÎÄ¼şÀàĞÍ
+string JsonFilePath { get; } //èµ„æºjsonæ–‡ä»¶ä¿å­˜è·¯å¾„
+string ExternalResDir { get; } //è¦æ‰“åŒ…æˆassetbundleçš„å¤–éƒ¨æ–‡ä»¶å¤¹
+List<Type> CanDropType { get; } //èƒ½å¿˜èµ„æºç®¡ç†é‡Œé¢æ‹–çš„æ–‡ä»¶ç±»å‹
 ```
 
-Äã¿ÉÒÔ×ÔĞĞÊµÏÖ½Ó¿ÚÈ»ºóĞŞ¸ÄresconfigÀïÃæÓÃÄãµÄÀà¶ø²»ÓÃÄ¬ÈÏµÄ
+ä½ å¯ä»¥è‡ªè¡Œå®ç°æ¥å£ç„¶åä¿®æ”¹resconfigé‡Œé¢ç”¨ä½ çš„ç±»è€Œä¸ç”¨é»˜è®¤çš„
 ![Alt text](./1571799514142.png)
 
-Ä¬ÈÏÓĞÒ»¸öÄ¬ÈÏÊµÏÖ
+é»˜è®¤æœ‰ä¸€ä¸ªé»˜è®¤å®ç°
 
-### Éú³É×ÊÔ´½çÃæ
+### ç”Ÿæˆèµ„æºç•Œé¢
 > ![Alt text](./1571799654136.png)
 
 
-×ó²àÎª±à¼­Æ÷ËùÒıÓÃµ½µÄ×ÊÔ´µÄab
+å·¦ä¾§ä¸ºç¼–è¾‘å™¨æ‰€å¼•ç”¨åˆ°çš„èµ„æºçš„ab
 
-ÓÒ²àÎªÑ¡ÖĞµÄabÀïÃæ°üº¬µÄ×ÊÔ´ĞÅÏ¢
+å³ä¾§ä¸ºé€‰ä¸­çš„abé‡Œé¢åŒ…å«çš„èµ„æºä¿¡æ¯
 
-> AB ÎªÃ¿¸öÄ¿Â¼»áÉú³ÉÒ»¸öab
-> ±ÈÈçÏÂÍ¼×ÊÔ´½á¹¹:
+> AB ä¸ºæ¯ä¸ªç›®å½•ä¼šç”Ÿæˆä¸€ä¸ªab
+> æ¯”å¦‚ä¸‹å›¾èµ„æºç»“æ„:
 > ![Alt text](./1571799825969.png)
->> ¾Í»áÉú³É£º 
-> new folder.bytes ->°üº¬  cube_b mainCame... µÈµÈ (Ç°ÌáÊÇ×ÊÔ´¹ÜÀíÆ÷Ìí¼ÓÁËÕâ¸ö×ÊÔ´²»È»²»»á±»´ò°üµ½ab)
+>> å°±ä¼šç”Ÿæˆï¼š 
+> new folder.bytes ->åŒ…å«  cube_b mainCame... ç­‰ç­‰ (å‰ææ˜¯èµ„æºç®¡ç†å™¨æ·»åŠ äº†è¿™ä¸ªèµ„æºä¸ç„¶ä¸ä¼šè¢«æ‰“åŒ…åˆ°ab)
 > new folder_new folder.bytes
 > new folder 1.bytes
 >new folder 2.bytes
 
->` ×¢Òâ£º` abÃû×Ö»áÒÔExternalResDir Îª¸ùÄ¿Â¼  È»ºó°ÑËùÓĞµÄ/»»³É_ÎªÃû×Ö
+>` æ³¨æ„ï¼š` abåå­—ä¼šä»¥ExternalResDir ä¸ºæ ¹ç›®å½•  ç„¶åæŠŠæ‰€æœ‰çš„/æ¢æˆ_ä¸ºåå­—
 
-## ×ÊÔ´¼ÓÔØ
-Ìí¼ÓResMgr½Å±¾µ½ÄãµÄ³¡¾°ÓÎÏ·ÎïÌåÉÏ×¢ÒâÇĞ»»³¡¾°²»ÄÜÉ¾³ı
+## èµ„æºåŠ è½½
+æ·»åŠ ResMgrè„šæœ¬åˆ°ä½ çš„åœºæ™¯æ¸¸æˆç‰©ä½“ä¸Šæ³¨æ„åˆ‡æ¢åœºæ™¯ä¸èƒ½åˆ é™¤
 
-ÊµÏÖYKFramwork.ResMgr.IResLoadCfg À´×Ô¶¨ÒåÄãµÄ¼ÓÔØÉèÖÃ
+å®ç°YKFramwork.ResMgr.IResLoadCfg æ¥è‡ªå®šä¹‰ä½ çš„åŠ è½½è®¾ç½®
 
 ```
-  bool SimulateAssetBundle { get; } //ÊÇ·ñ´ò¿ª±à¼­Æ÷ÏÂab¼ÓÔØ·½Ê½
-  ResJsonData ResData { get; }//×ÊÔ´ÅäÖÃ±íÊı¾İ //Õâ¸öĞèÒª×Ô¼ºÏÈ¼ÓÔØºÃ
-  string RootABPath { get; } //ab´æ·ÅµÄ¸ùÄ¿Â¼
-  string RootABUrl { get; } //ab´æ·ÅµÄÄ¿Â¼µÄurl
-  string AssetBundleVariant { get; }//abµÄºó×ºÃû³Æ
+  bool SimulateAssetBundle { get; } //æ˜¯å¦æ‰“å¼€ç¼–è¾‘å™¨ä¸‹abåŠ è½½æ–¹å¼
+  ResJsonData ResData { get; }//èµ„æºé…ç½®è¡¨æ•°æ® //è¿™ä¸ªéœ€è¦è‡ªå·±å…ˆåŠ è½½å¥½
+  string RootABPath { get; } //abå­˜æ”¾çš„æ ¹ç›®å½•
+  string RootABUrl { get; } //abå­˜æ”¾çš„ç›®å½•çš„url
+  string AssetBundleVariant { get; }//abçš„åç¼€åç§°
 ```
-Í¬ÑùÕâ¸öÒ²ÓĞÒ»¸öÄ¬ÈÏÊµÏÖ YKFramwork.ResMgr.DefResLoadCfgÄã¿ÉÒÔ±àĞ´×Ô¼ºµÄconfig
+åŒæ ·è¿™ä¸ªä¹Ÿæœ‰ä¸€ä¸ªé»˜è®¤å®ç° YKFramwork.ResMgr.DefResLoadCfgä½ å¯ä»¥ç¼–å†™è‡ªå·±çš„config
 
-ÔõÃ´Ê¹ÓÃ 
+æ€ä¹ˆä½¿ç”¨ 
 
-ÏÈ½øĞĞÅäÖÃ±í³õÊ¼»¯
+å…ˆè¿›è¡Œé…ç½®è¡¨åˆå§‹åŒ–
 ![Alt text](./1571801907706.png)
-³õÊ¼»¯ºó¾Í¿ÉÒÔÊ¹ÓÃ  resmgr µÄApiÁË
+åˆå§‹åŒ–åå°±å¯ä»¥ä½¿ç”¨  resmgr çš„Apiäº†
 
 
-### Ö÷Òª API ËµÃ÷
+### ä¸»è¦ API è¯´æ˜
 
-YKFramwork.ResMgr.ResMgr£º
+YKFramwork.ResMgr.ResMgrï¼š
 ```
-HasAsset(string address) //ÅĞ¶Ï×ÊÔ´ÊÇ·ñÔÚÄÚ´æÖĞ
+HasAsset(string address) //åˆ¤æ–­èµ„æºæ˜¯å¦åœ¨å†…å­˜ä¸­
 
-GetRes(string address) //Í¬²½»ñÈ¡Ò»¸ö×ÊÔ´£¬Õâ¸ö×ÊÔ´±ØĞëÊÇ¼ÓÔØ¹ıµÄ·ñÔò±¨´í
-GetResByUrl(string url)//ºÍÉÏÒ»¸öÒ»ÑùÖ»ÊÇÊ¹ÓÃurl½øĞĞ»ñÈ¡
+GetRes(string address) //åŒæ­¥è·å–ä¸€ä¸ªèµ„æºï¼Œè¿™ä¸ªèµ„æºå¿…é¡»æ˜¯åŠ è½½è¿‡çš„å¦åˆ™æŠ¥é”™
+GetResByUrl(string url)//å’Œä¸Šä¸€ä¸ªä¸€æ ·åªæ˜¯ä½¿ç”¨urlè¿›è¡Œè·å–
 
-GetResAsync(string address, Action<UnityEngine.Object> callback) //Òì²½»ñÈ¡Ò»¸ö×ÊÔ´£¬Õâ¸ö×ÊÔ´¿ÉÒÔÊÇÃ»ÓĞ¼ÓÔØ¹ıµÃ
+GetResAsync(string address, Action<UnityEngine.Object> callback) //å¼‚æ­¥è·å–ä¸€ä¸ªèµ„æºï¼Œè¿™ä¸ªèµ„æºå¯ä»¥æ˜¯æ²¡æœ‰åŠ è½½è¿‡å¾—
 
-GetResAsyncByUrl (string url, Action<UnityEngine.Object> callback) //ºÍÉÏÒ»¸öÏàÍ¬Ö»ÊÇÊ¹ÓÃurl
+GetResAsyncByUrl (string url, Action<UnityEngine.Object> callback) //å’Œä¸Šä¸€ä¸ªç›¸åŒåªæ˜¯ä½¿ç”¨url
 
-LoadGroup(string groupName, Action<string> completed, Action<float, string> itemCompleted)//¼ÓÔØÒ»×é×ÊÔ´ ²ÎÊı·Ö±ğÎª ×ÊÔ´×éÃû³Æ£¬¼ÓÔØÍê³É£¬¼ÓÔØÍêµ¥¸ö×ÊÔ´µÄ»Øµ÷°üº¬½ø¶ÈºÍµ±Ç°¼ÓÔØ³öÀ´µÄ×ÊÔ´Ãû
-
-
-LoadForResource(string addr, Action<UnityEngine.Object> callback)//¼ÓÔØÒ»¸öresourceÏÂµÄ×ÊÔ´
-LoadForResourceByUrl(string url, Action<UnityEngine.Object> callback)//Í¬ÉÏ
+LoadGroup(string groupName, Action<string> completed, Action<float, string> itemCompleted)//åŠ è½½ä¸€ç»„èµ„æº å‚æ•°åˆ†åˆ«ä¸º èµ„æºç»„åç§°ï¼ŒåŠ è½½å®Œæˆï¼ŒåŠ è½½å®Œå•ä¸ªèµ„æºçš„å›è°ƒåŒ…å«è¿›åº¦å’Œå½“å‰åŠ è½½å‡ºæ¥çš„èµ„æºå
 
 
-LoadForAB(string addr, Action<UnityEngine.Object> callback,bool releaseAB = false)//´ÓabÀïÃæ¼ÓÔØÒ»¸ö×ÊÔ´  releaseAB±êÖ¾Îª¼ÓÔØºóÊÇ·ñÊÍ·Åµôab
+LoadForResource(string addr, Action<UnityEngine.Object> callback)//åŠ è½½ä¸€ä¸ªresourceä¸‹çš„èµ„æº
+LoadForResourceByUrl(string url, Action<UnityEngine.Object> callback)//åŒä¸Š
 
-Release(string addr, bool force = false)//ÊÍ·ÅÒ»¸ö×ÊÔ´ force Ç¿ÖÆÊÍ·Å£¬²»¹ÜÓĞÃ»ÓĞÆäËûµØ·½ÒıÓÃÇ¿ÖÆĞ¶ÔØ
 
-UnloadUnused() //µ÷ÓÃÕâ¸öº¯ÊıÀ´ÊÍ·ÅËùÓĞ²»ÊÇ³£×¤ÄÚ´æµÄ×ÊÔ´
+LoadForAB(string addr, Action<UnityEngine.Object> callback,bool releaseAB = false)//ä»abé‡Œé¢åŠ è½½ä¸€ä¸ªèµ„æº  releaseABæ ‡å¿—ä¸ºåŠ è½½åæ˜¯å¦é‡Šæ”¾æ‰ab
+
+Release(string addr, bool force = false)//é‡Šæ”¾ä¸€ä¸ªèµ„æº force å¼ºåˆ¶é‡Šæ”¾ï¼Œä¸ç®¡æœ‰æ²¡æœ‰å…¶ä»–åœ°æ–¹å¼•ç”¨å¼ºåˆ¶å¸è½½
+
+UnloadUnused() //è°ƒç”¨è¿™ä¸ªå‡½æ•°æ¥é‡Šæ”¾æ‰€æœ‰ä¸æ˜¯å¸¸é©»å†…å­˜çš„èµ„æº
 ```
 
-**½Ó¿Ú£º**
+**æ¥å£ï¼š**
 
 ```
-YKFramwork.ResMgr.IAssetBundleLoad ¼ÓÔØabµÄÊµÏÖ
+YKFramwork.ResMgr.IAssetBundleLoad åŠ è½½abçš„å®ç°
 
-µ÷ÓÃYKFramwork.ResMgr.ResMgr.Instace.ABMgr =  new DefAssetBundleLoad(); À´ÉèÖÃ
-Ä¬ÈÏÊµÏÖÎª YKFramwork.ResMgr.DefAssetBundleLoad
-
-
-YKFramwork.ResMgr.IResourceLoad ¼ÓÔØresourceµÄÊµÏÖ
-µ÷ÓÃYKFramwork.ResMgr.ResMgr.Instace.ResourceLoad =  new DefResourceLoad(); À´ÉèÖÃ
-Ä¬ÈÏÊµÏÖÎª YKFramwork.ResMgr.DefResourceLoad
+è°ƒç”¨YKFramwork.ResMgr.ResMgr.Instace.ABMgr =  new DefAssetBundleLoad(); æ¥è®¾ç½®
+é»˜è®¤å®ç°ä¸º YKFramwork.ResMgr.DefAssetBundleLoad
 
 
+YKFramwork.ResMgr.IResourceLoad åŠ è½½resourceçš„å®ç°
+è°ƒç”¨YKFramwork.ResMgr.ResMgr.Instace.ResourceLoad =  new DefResourceLoad(); æ¥è®¾ç½®
+é»˜è®¤å®ç°ä¸º YKFramwork.ResMgr.DefResourceLoad
 
-YKFramwork.ResMgr.IResLoadCfg ¼ÓÔØµÄÅäÖÃĞÅÏ¢
-µ÷ÓÃ  cfg = new DefResLoadCfg();
+
+
+YKFramwork.ResMgr.IResLoadCfg åŠ è½½çš„é…ç½®ä¿¡æ¯
+è°ƒç”¨  cfg = new DefResLoadCfg();
         ResMgr.Instance.cfg = cfg;
-Ä¬ÈÏÊµÏÖ YKFramwork.ResMgr.DefResLoadCfg
+é»˜è®¤å®ç° YKFramwork.ResMgr.DefResLoadCfg
 ```
-## °¸Àı
-ÔÚExampleÎÄ¼ş¼ĞÏÂÓĞ°¸Àı³¡¾°ºÍ½Å±¾
+## æ¡ˆä¾‹
+åœ¨Exampleæ–‡ä»¶å¤¹ä¸‹æœ‰æ¡ˆä¾‹åœºæ™¯å’Œè„šæœ¬
 
 
 
