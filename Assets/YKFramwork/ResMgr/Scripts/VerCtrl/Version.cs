@@ -17,6 +17,10 @@ namespace YKFramwork.ResMgr.VersionCtrl
 
         public List<ABInfo> AllAB { get; }
 
+        public Version()
+        {
+            AllAB = new List<ABInfo>();
+        }
         public Version(byte[] bs)
         {
             var buffer = new ByteBuffer(bs);
@@ -32,6 +36,23 @@ namespace YKFramwork.ResMgr.VersionCtrl
                 AllAB.Add(info);
             }
             buffer.Close();
+        }
+
+        public byte[] ToBytes()
+        {
+            var buffer = new ByteBuffer();
+            buffer.WriteString(version);
+            buffer.WriteInt(AllAB.Count);
+            foreach (var abInfo in AllAB)
+            {
+                buffer.WriteString(abInfo.name);
+                buffer.WriteString(abInfo.sha1);
+                buffer.WriteLong(abInfo.size);
+            }
+
+            var bt = buffer.ToBytes();
+            buffer.Close();
+            return bt;
         }
     }
 }

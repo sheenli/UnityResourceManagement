@@ -15,9 +15,7 @@ namespace YKFramwork.ResMgr
     public class DefResLoadCfg : IResLoadCfg
     {
         private bool mSimulateAssetBundle = true;
-        private const string editorExternalResDir = "Assets/ExternalRes";
         private const string editorResJsonPath = "Assets/defaultres.json";
-
         public DefResLoadCfg()
         {
             RootABPath = Application.streamingAssetsPath;
@@ -38,11 +36,6 @@ namespace YKFramwork.ResMgr
             get { return mSimulateAssetBundle; }
         }
 
-        public string EditorExternalResDir
-        {
-            get { return editorExternalResDir; }
-        }
-
         private ResJsonData mResJsonData;
         private readonly string mRootAbUrl;
 
@@ -61,10 +54,6 @@ namespace YKFramwork.ResMgr
         }
 
         public string AssetBundleVariant { get; }
-        public string EditorResJsonPath
-        {
-            get { return editorResJsonPath; }
-        }
 
         public void Init(Action callback)
         {
@@ -103,7 +92,6 @@ namespace YKFramwork.ResMgr
                             throw new Exception("加载配置文件失败"+resp.webRequest.error);
                         }
                     };
-//                    ResMgr.Instance.StartCoroutine(loadJson(callback));
                 }
             }
             

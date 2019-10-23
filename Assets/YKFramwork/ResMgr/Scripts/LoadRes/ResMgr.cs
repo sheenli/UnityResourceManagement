@@ -16,9 +16,9 @@ namespace YKFramwork.ResMgr
 
         public IResourceLoad ResourceLoad { set; get; }
 
-        public IResLoadCfg cfg { private set; get; }
+        public IResLoadCfg cfg {  set; get; }
 
-        public static ResMgr Instance { get; private set; }
+        public static ResMgr Instance { get; set; }
 
 
         private void Awake()

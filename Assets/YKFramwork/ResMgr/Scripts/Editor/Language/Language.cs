@@ -23,6 +23,7 @@
 
         public const string isResource = "resource资源";
         public const string isKeepInMemory = "是否常驻内存";
+        public const string ResUrl = "资源Url";
 
         public const string BundleName = "AB名称";
 

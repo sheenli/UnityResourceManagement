@@ -13,6 +13,12 @@
             "keys": [
                 "Cube_Red_prefab"
             ]
+        },
+        {
+            "groupName": "NewGroupName",
+            "keys": [
+                "Cube_Red_G 1_prefab"
+            ]
         }
     ],
     "resources": [
@@ -48,6 +54,15 @@
             "ABName": "New Folder 2",
             "path": "Assets/ExternalRes/New Folder 2/Cube_Red_G.prefab",
             "address": "Cube_Red_G_prefab",
+            "type": ".prefab",
+            "isKeepInMemory": true,
+            "isResourcesPath": false
+        },
+        {
+            "url": "e://New Folder 2/dasdasddsa.prefab",
+            "ABName": "New Folder 2",
+            "path": "Assets/ExternalRes/New Folder 2/dasdasddsa.prefab",
+            "address": "Cube_Red_G 1_prefab",
             "type": ".prefab",
             "isKeepInMemory": true,
             "isResourcesPath": false
