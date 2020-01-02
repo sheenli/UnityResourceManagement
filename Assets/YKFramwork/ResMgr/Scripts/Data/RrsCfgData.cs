@@ -5,7 +5,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace YKFramwork.ResMgr
+namespace YKFramework.ResMgr
 {
     /// <summary>
     /// 加载场景的配置信息

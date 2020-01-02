@@ -4,10 +4,10 @@ using System.IO;
 using System.Security.Cryptography;
 using UnityEditor;
 using UnityEngine;
-using YKFramwork.ResMgr.Utils;
-using YKFramwork.ResMgr.VersionCtrl;
+using YKFramework.ResMgr.Utils;
+using YKFramework.ResMgr.VersionCtrl;
 
-namespace YKFramwork.ResMgr.Editor
+namespace YKFramework.ResMgr.Editor
 {
     public class AssetBuildView
     {

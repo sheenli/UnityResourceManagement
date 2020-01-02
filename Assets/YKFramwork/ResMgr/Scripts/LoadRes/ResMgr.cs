@@ -6,7 +6,7 @@ using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace YKFramwork.ResMgr
+namespace YKFramework.ResMgr
 {
     public class ResMgr : MonoBehaviour
     {
@@ -35,8 +35,6 @@ namespace YKFramwork.ResMgr
         }
 
         #region 同步获取资源
-
-
 
         public T GetRes<T>(string address) where T : Object
         {
@@ -175,7 +173,7 @@ namespace YKFramwork.ResMgr
             }
         }
 
-        public void LoadForABByUrl(string url, Action<UnityEngine.Object> callback,bool releaseAB = false)
+        public void LoadForABByUrl(string url, Action<UnityEngine.Object> callback,bool releaseAb = false)
         {
             bool needLoadAb = false;
             var info = cfg.ResData.GetResInfoByUrl(url);
@@ -235,7 +233,7 @@ namespace YKFramwork.ResMgr
                         mAllRes[info.address] = asset;
                     }
 
-                    if (releaseAB)
+                    if (releaseAb)
                     {
                         ABMgr.Release(info.ABName);
                     }

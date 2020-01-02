@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 using Object = System.Object;
 
-namespace YKFramwork.ResMgr
+namespace YKFramework.ResMgr
 {
     public class DefAssetBundleLoad : IAssetBundleLoad
     {

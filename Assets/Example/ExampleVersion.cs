@@ -1,8 +1,7 @@
-﻿using System;
-using System.Net;
+﻿
 using UnityEngine;
 using UnityEngine.Networking;
-using YKFramwork.ResMgr;
+using YKFramework.ResMgr;
 
 public class ExampleVersion:MonoBehaviour
 {
@@ -14,7 +13,7 @@ public class ExampleVersion:MonoBehaviour
             UnityWebRequestAsyncOperation wepop = op as UnityWebRequestAsyncOperation;
             if (string.IsNullOrEmpty(wepop.webRequest.error))
             {
-                var ver = new YKFramwork.ResMgr.VersionCtrl.Version(wepop.webRequest.downloadHandler.data);
+                var ver = new YKFramework.ResMgr.VersionCtrl.Version(wepop.webRequest.downloadHandler.data);
                 Debug.Log(ver.version);
                 for (var index = 0; index < ver.AllAB.Count; index++)
                 {

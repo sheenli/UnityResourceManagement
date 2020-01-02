@@ -1,7 +1,7 @@
 ﻿using System;
 using Object = UnityEngine.Object;
 
-namespace YKFramwork.ResMgr
+namespace YKFramework.ResMgr
 {
     public interface IResourceLoad
     {

@@ -2,7 +2,7 @@
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace YKFramwork.ResMgr
+namespace YKFramework.ResMgr
 {
     public class DefResourceLoad:IResourceLoad
     {

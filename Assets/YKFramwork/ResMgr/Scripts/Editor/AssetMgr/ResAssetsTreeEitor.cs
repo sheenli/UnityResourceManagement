@@ -6,7 +6,7 @@ using UnityEditor;
 using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 
-namespace YKFramwork.ResMgr.Editor
+namespace YKFramework.ResMgr.Editor
 {
     public class ResAssetsTreeEitor : TreeView
     {
@@ -140,8 +140,8 @@ namespace YKFramwork.ResMgr.Editor
         public override void OnGUI(Rect rect)
         {
             base.OnGUI(rect);
-            if (Event.current.type == EventType.MouseDown && Event.current.button == 0 &&
-                rect.Contains(Event.current.mousePosition))
+            if (UnityEngine.Event.current.type == EventType.MouseDown && UnityEngine.Event.current.button == 0 &&
+                rect.Contains(UnityEngine.Event.current.mousePosition))
             {
                 SetSelection(new int[0], TreeViewSelectionOptions.FireSelectionChanged);
             }
@@ -413,7 +413,7 @@ namespace YKFramwork.ResMgr.Editor
 
         protected override void KeyEvent()
         {
-            if (!string.IsNullOrEmpty(groupName) && Event.current.keyCode == KeyCode.Delete && GetSelection().Count > 0)
+            if (!string.IsNullOrEmpty(groupName) && UnityEngine.Event.current.keyCode == KeyCode.Delete && GetSelection().Count > 0)
             {
                 List<AssetTreeViewItem> selectedNodes = new List<AssetTreeViewItem>();
                 foreach (var nodeID in GetSelection())

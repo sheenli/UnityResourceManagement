@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace YKFramwork.ResMgr.Utils
+namespace YKFramework.ResMgr.Utils
 {
     public class ReflectionUtils
     {
