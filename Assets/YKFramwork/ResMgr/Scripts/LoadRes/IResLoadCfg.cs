@@ -1,4 +1,4 @@
-﻿namespace YKFramwork.ResMgr
+﻿namespace YKFramework.ResMgr
 {
     public interface IResLoadCfg
     {

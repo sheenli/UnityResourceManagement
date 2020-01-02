@@ -3,9 +3,9 @@ using System.IO;
 using UnityEditor;
 using UnityEditor.IMGUI.Controls;
 using UnityEngine;
-using YKFramwork.ResMgr.Editor;
+using YKFramework.ResMgr.Editor;
 
-namespace YKFramwork.ResMgr.Editor
+namespace YKFramework.ResMgr.Editor
 {
     public class AssetsBundleAssetsTree:TreeView
     {
@@ -88,8 +88,8 @@ namespace YKFramwork.ResMgr.Editor
         public override void OnGUI(Rect rect)
         {
             base.OnGUI(rect);
-            if (Event.current.type == EventType.MouseDown && Event.current.button == 0 &&
-                rect.Contains(Event.current.mousePosition))
+            if (UnityEngine.Event.current.type == EventType.MouseDown && UnityEngine.Event.current.button == 0 &&
+                rect.Contains(UnityEngine.Event.current.mousePosition))
             {
                 SetSelection(new int[0], TreeViewSelectionOptions.FireSelectionChanged);
             }

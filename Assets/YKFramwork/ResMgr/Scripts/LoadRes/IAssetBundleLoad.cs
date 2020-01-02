@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace YKFramwork.ResMgr
+namespace YKFramework.ResMgr
 {
     public interface IAssetBundleLoad
     {

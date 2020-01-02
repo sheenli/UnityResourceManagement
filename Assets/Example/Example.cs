@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using YKFramwork.ResMgr;
+using YKFramework.ResMgr;
 
 public class Example : MonoBehaviour
 {

@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace YKFramwork.ResMgr
+namespace YKFramework.ResMgr
 {
     public class LoadGroup
     {

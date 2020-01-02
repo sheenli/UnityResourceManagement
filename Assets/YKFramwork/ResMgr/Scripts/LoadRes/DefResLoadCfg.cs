@@ -10,7 +10,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace YKFramwork.ResMgr
+namespace YKFramework.ResMgr
 {
     public class DefResLoadCfg : IResLoadCfg
     {
@@ -31,7 +31,7 @@ namespace YKFramwork.ResMgr
 #endif
 
         }
-        public bool SimulateAssetBundle 
+        public virtual bool SimulateAssetBundle 
         {
             get { return mSimulateAssetBundle; }
         }
@@ -46,14 +46,14 @@ namespace YKFramwork.ResMgr
                 return mResJsonData;
             }
         }
-        public string RootABPath { get; }
+        public virtual string RootABPath { get; }
 
-        public string RootABUrl
+        public virtual string RootABUrl
         {
             get { return mRootAbUrl; }
         }
 
-        public string AssetBundleVariant { get; }
+        public virtual string AssetBundleVariant { get; }
 
         public void Init(Action callback)
         {
@@ -69,7 +69,6 @@ namespace YKFramwork.ResMgr
 #if UNITY_EDITOR
                     var text = AssetDatabase.LoadAssetAtPath<TextAsset>(editorResJsonPath);
                     mResJsonData = JsonUtility.FromJson<ResJsonData>(text.text);
-                    text = null;
                     if (callback != null)
                     {
                         callback();
@@ -86,12 +85,23 @@ namespace YKFramwork.ResMgr
                         if (string.IsNullOrEmpty(resp.webRequest.error))
                         {
                             mResJsonData = JsonUtility.FromJson<ResJsonData>(resp.webRequest.downloadHandler.text);
+                            if (callback != null)
+                            {
+                                callback();
+                            }
                         }
                         else
                         {
                             throw new Exception("加载配置文件失败"+resp.webRequest.error);
                         }
                     };
+                }
+            }
+            else
+            {
+                if (callback != null)
+                {
+                    callback();
                 }
             }
             

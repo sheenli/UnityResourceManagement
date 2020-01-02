@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEditor;
 
-namespace YKFramwork.ResMgr.Editor
+namespace YKFramework.ResMgr.Editor
 {
     public interface IResConfig
     {
@@ -41,7 +42,8 @@ namespace YKFramwork.ResMgr.Editor
     {
         private static IResConfig mResCfgJsonPath;
         
-        static ResConfig()
+        [InitializeOnLoadMethod]
+        static void Init()
         {
             mResCfgJsonPath = new DefResCfg();
         }

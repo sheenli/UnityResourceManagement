@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
+using YKFramework.ResMgr.Utils;
 //using NUnit.Framework;
-using YKFramwork.ResMgr.Utils;
 
-namespace YKFramwork.ResMgr.VersionCtrl
+namespace YKFramework.ResMgr.VersionCtrl
 {
     
     public class Version

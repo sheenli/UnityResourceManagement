@@ -7,7 +7,7 @@ using System;
 using UnityEditor.IMGUI.Controls;
 using UnityEngine.Serialization;
 
-namespace YKFramwork.ResMgr.Editor
+namespace YKFramework.ResMgr.Editor
 {
     public class ResFileEditor : EditorWindow
     {

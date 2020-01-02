@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
-using YKFramwork.ResMgr.Editor;
+using YKFramework.ResMgr.Editor;
 
-namespace YKFramwork.ResMgr.Editor
+namespace YKFramework.ResMgr.Editor
 {
 
     public class AssetModificationProcessor : UnityEditor.AssetModificationProcessor

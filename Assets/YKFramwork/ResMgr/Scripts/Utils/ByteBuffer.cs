@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 using System;
 
-namespace YKFramwork.ResMgr.Utils
+namespace YKFramework.ResMgr.Utils
 {
     public class ByteBuffer
     {

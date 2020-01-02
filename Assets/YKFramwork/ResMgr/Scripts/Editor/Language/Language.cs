@@ -1,4 +1,4 @@
-﻿namespace YKFramwork.ResMgr.Editor
+﻿namespace YKFramework.ResMgr.Editor
 {
     public class Language
     {

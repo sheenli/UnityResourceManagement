@@ -2,9 +2,9 @@
 using UnityEditor;
 using UnityEditor.IMGUI.Controls;
 using UnityEngine;
-using YKFramwork.ResMgr.Editor;
+using YKFramework.ResMgr.Editor;
 
-namespace YKFramwork.ResMgr.Editor
+namespace YKFramework.ResMgr.Editor
 {
     public class AssetBundleEditor
     {
@@ -129,17 +129,17 @@ namespace YKFramwork.ResMgr.Editor
             m_HorizontalSplitterRect.height = m_Position.height;
 
             EditorGUIUtility.AddCursorRect(m_HorizontalSplitterRect, MouseCursor.ResizeHorizontal);
-            if (Event.current.type == EventType.MouseDown &&
-                m_HorizontalSplitterRect.Contains(Event.current.mousePosition))
+            if (UnityEngine.Event.current.type == EventType.MouseDown &&
+                m_HorizontalSplitterRect.Contains(UnityEngine.Event.current.mousePosition))
                 m_ResizingHorizontalSplitter = true;
 
             if (m_ResizingHorizontalSplitter)
             {
-                m_HorizontalSplitterPercent = Mathf.Clamp(Event.current.mousePosition.x / m_Position.width, 0.1f, 0.9f);
+                m_HorizontalSplitterPercent = Mathf.Clamp(UnityEngine.Event.current.mousePosition.x / m_Position.width, 0.1f, 0.9f);
                 m_HorizontalSplitterRect.x = (int) (m_Position.width * m_HorizontalSplitterPercent);
             }
 
-            if (Event.current.type == EventType.MouseUp)
+            if (UnityEngine.Event.current.type == EventType.MouseUp)
                 m_ResizingHorizontalSplitter = false;
         }
 
@@ -159,19 +159,19 @@ namespace YKFramwork.ResMgr.Editor
 
 
             EditorGUIUtility.AddCursorRect(m_VerticalSplitterRect, MouseCursor.ResizeVertical);
-            if (Event.current.type == EventType.MouseDown &&
-                m_VerticalSplitterRect.Contains(Event.current.mousePosition))
+            if (UnityEngine.Event.current.type == EventType.MouseDown &&
+                m_VerticalSplitterRect.Contains(UnityEngine.Event.current.mousePosition))
                 m_ResizingVerticalSplitter = true;
 
             if (m_ResizingVerticalSplitter)
             {
-                m_VerticalSplitterPercent = Mathf.Clamp(Event.current.mousePosition.y / m_HorizontalSplitterRect.height,
+                m_VerticalSplitterPercent = Mathf.Clamp(UnityEngine.Event.current.mousePosition.y / m_HorizontalSplitterRect.height,
                     0.4f, 0.7f);
                 m_VerticalSplitterRect.y = (int) (m_HorizontalSplitterRect.height * m_VerticalSplitterPercent);
             }
 
 
-            if (Event.current.type == EventType.MouseUp)
+            if (UnityEngine.Event.current.type == EventType.MouseUp)
             {
                 m_ResizingVerticalSplitter = false;
             }
