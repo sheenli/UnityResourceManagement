@@ -44,7 +44,7 @@ YKFramwork.ResMgr.Editor.IResConfig
 ``` cs
 string JsonFilePath { get; } //资源json文件保存路径
 string ExternalResDir { get; } //要打包成assetbundle的外部文件夹
-List<Type> CanDropType { get; } //能忘资源管理里面拖的文件类型
+List<Type> CanDropType { get; } //能往资源管理里面拖的文件类型
 ```
 
 你可以自行实现接口然后修改resconfig里面用你的类而不用默认的
